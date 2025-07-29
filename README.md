@@ -1,69 +1,23 @@
-# React + TypeScript + Vite
+# React Art Gallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application built with Vite and TypeScript featuring PrimeReact DataTable with server-side pagination and persistent row selection.
 
-Currently, two official plugins are available:
+Features:
+- React + TypeScript + Vite setup
+- PrimeReact DataTable component for display
+- Fetches artworks data from https://api.artic.edu/api/v1/artworks?page=1
+- Displays fields: title, place_of_origin, artist_display, inscriptions, date_start, date_end
+- Server-side pagination with API calls on page change
+- Row selection with checkbox and custom selection panel
+- Persistent selection state across pages without caching all data client-side
+- Deployed on Netlify at https://react-art-gallery-0000.netlify.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Setup and Run:
+1. Clone repo: git clone https://github.com/ChemicalSalt/react-art-gallery.git
+2. Install dependencies: npm install
+3. Run dev server: npm run dev
+4. Build production: npm run build
+5. Deploy: netlify deploy --prod --dir=dist or use Netlify UI
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Project URL: https://react-art-gallery-0000.netlify.app
+Netlify Admin: https://app.netlify.com/projects/react-art-gallery-0000
