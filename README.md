@@ -10,7 +10,7 @@ Features:
 - Server-side pagination with API calls on page change
 - Row selection with checkbox and custom selection panel
 - Persistent selection state across pages without caching all data client-side
-- Deployed on Netlify at https://react-art-gallery-0000.netlify.app
+- Deployed on Netlify at [React Art Gallery](https://react-art-gallery-0000.netlify.app)
 
 Setup and Run:
 1. Clone repo: git clone https://github.com/ChemicalSalt/react-art-gallery.git
