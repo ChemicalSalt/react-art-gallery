@@ -18,5 +18,3 @@ Setup and Run:
 3. Run dev server: npm run dev
 4. Build production: npm run build
 5. Deploy: netlify deploy --prod --dir=dist or use Netlify UI
-
-Live Project: [React Art Gallery](https://react-art-gallery-0000.netlify.app)
