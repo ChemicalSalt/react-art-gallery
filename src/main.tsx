@@ -1,4 +1,4 @@
-import 'primereact/resources/themes/lara-light-indigo/theme.css';  // You can choose any PrimeReact theme
+import 'primereact/resources/themes/lara-light-indigo/theme.css';  
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 
