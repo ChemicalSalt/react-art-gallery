@@ -25,11 +25,12 @@ const ArtTable: React.FC = () => {
   const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set());
   const [selectedItems, setSelectedItems] = useState<Artwork[]>([]);
 
-  const [visitedRows, setVisitedRows] = useState<Artwork[]>([]);
+  const [visitedRows, setVisitedRows] = useState<Artwork[]>([]); 
   const [showSelectorInput, setShowSelectorInput] = useState(false);
   const [selectCount, setSelectCount] = useState<number | null>(null);
 
   const fetchPage = async (pageNumber: number): Promise<Artwork[]> => {
+    console.log(`[DEBUG] Fetching from API: Page ${pageNumber}`);
     setLoading(true);
     try {
       const res = await fetch(`https://api.artic.edu/api/v1/artworks?page=${pageNumber}`);
@@ -101,7 +102,7 @@ const ArtTable: React.FC = () => {
     if (!selectCount || selectCount < 1) return;
 
     if (visitedRows.length < selectCount) {
-      alert(`You can only select up to ${visitedRows.length} artworks from pages you have visited. Visit more pages to select more.`);
+      alert(`Only ${visitedRows.length} artworks available from visited pages. Visit more pages to select more rows.`);
       return;
     }
 
@@ -165,7 +166,15 @@ const ArtTable: React.FC = () => {
                 >
                   <InputNumber
                     value={selectCount}
-                    onValueChange={e => setSelectCount(e.value ?? null)}
+                    onValueChange={e => {
+                      const val = e.value ?? null;
+                      if (val && val > visitedRows.length) {
+                        alert(`Only ${visitedRows.length} artworks available from visited pages. Visit more pages to select more rows.`);
+                        setSelectCount(visitedRows.length);
+                      } else {
+                        setSelectCount(val);
+                      }
+                    }}
                     min={1}
                     max={visitedRows.length || PAGE_SIZE}
                     placeholder="Enter count"
